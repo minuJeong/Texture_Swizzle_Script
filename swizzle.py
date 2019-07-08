@@ -115,7 +115,7 @@ def process_pairs(diffuse_info, normal_info):
     # ADD CUSTOM RULES HERE
 
     # copy diffuse RGB to new diffuse RGB
-    new_diffuse[:, :, 0: 3] = diffuse[:, :, 0: 3]
+    new_diffuse[:, :, 0, 1, 2] = diffuse[:, :, 0, 1, 2]
 
     # diffuse A to new normal B
     new_normal[:, :, 2] = diffuse[:, :, 3]
@@ -126,8 +126,8 @@ def process_pairs(diffuse_info, normal_info):
     # normal G to new normal A
     new_normal[:, :, 3] = normal[:, :, 1]
 
-    # normal B to new normal A
-    new_normal[:, :, 3] = normal[:, :, 1]
+    # normal B to new normal R
+    new_normal[:, :, 0] = normal[:, :, 2]
 
     # normal A to normal G
     new_normal[:, :, 1] = normal[:, :, 3]
